@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client";
+import io, { Socket } from "socket.io-client";
 
-export const usesocket = () => {
+export const useSocket = () => {
     const [socket, setSocket] = useState<Socket | null>(null);
-    const [isconnected, setIsconnected] = useState<boolean>(false);
+    const [isConnected, setIsconnected] = useState<boolean>(false);
     const [messages, setMessages] = useState<string[]>([]);
 
     useEffect(() => {
@@ -32,5 +32,5 @@ export const usesocket = () => {
         socket?.emit('message', message);
     };
 
-    return { isconnected, messages, sendMessage };
+    return { isConnected, messages, sendMessage };
 };
