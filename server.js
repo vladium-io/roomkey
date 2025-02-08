@@ -18,6 +18,11 @@ app.prepare().then(() => {
     io.on('connection', (socket) => {
         console.log('client connected');
 
+        socket.on('message', (message) => {
+            console.log('incoming message: ', message);
+            io.emit('message: ', message);
+        });
+
         socket.on('disconnect', () => {
             console.log('client disconnected');
         });
