@@ -41,6 +41,9 @@ export default function Home() {
         </CardContent>
         <CardFooter>
           <form onSubmit={handleSubmit} className="flex w-full gap-2">
+
+            {/* TODO: ADD FILE UPLOAD HANDLING */}
+
             <Input
               type="text"
               value={inputMessage}
