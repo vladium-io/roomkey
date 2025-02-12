@@ -3,29 +3,29 @@ import io, { Socket } from "socket.io-client";
 
 export const useSocket = () => {
     const [socket, setSocket] = useState<Socket | null>(null);
-    const [isConnected, setIsconnected] = useState<boolean>(false);
+    const [isConnected, setIsConnected] = useState(false);
     const [messages, setMessages] = useState<string[]>([]);
 
     useEffect(() => {
         const socketIo = io();
 
         socketIo.on('connect', () => {
-            setIsconnected(true);
+            setIsConnected(true);
         });
 
         socketIo.on('disconnect', () => {
-            setIsconnected(false);
+            setIsConnected(false);
         });
 
-        socketIo.on('message', (message: string) => {
-            setMessages((prev) => [...prev, message]);
+        socketIo.on('message', (msg: string) => {
+            setMessages((prev) => [...prev, msg]);
         });
 
         setSocket(socketIo);
 
         return () => {
             socketIo.disconnect();
-        }
+        };
     }, []);
 
     const sendMessage = (message: string) => {

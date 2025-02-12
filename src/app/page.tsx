@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { useSocket } from '../hooks/useSocket';
+import { useSocket } from '@/hooks/useSocket';
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"

@@ -20,7 +20,7 @@ app.prepare().then(() => {
 
         socket.on('message', (message) => {
             console.log('incoming message: ', message);
-            io.emit('message: ', message);
+            io.emit('message', message);
         });
 
         socket.on('disconnect', () => {
